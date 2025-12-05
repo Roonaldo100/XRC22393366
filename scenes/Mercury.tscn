@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b73uok2w7ore"]
+
+[ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_bys30"]
+[ext_resource type="Texture2D" uid="uid://2j8n7rgiopgv" path="res://PlanetTextures/2k_mercury-3929006871.jpg" id="2_6kxdw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7vex"]
+albedo_texture = ExtResource("2_6kxdw")
+
+[node name="Node3D" instance=ExtResource("1_bys30")]
+
+[node name="MeshInstance3D" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c7vex")

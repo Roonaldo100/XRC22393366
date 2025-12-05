@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://d83lesg6uh1b"]
+[gd_scene load_steps=15 format=3 uid="uid://d83lesg6uh1b"]
 
+[ext_resource type="Texture2D" uid="uid://dwl03jmtqt6td" path="res://PlanetTextures/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg" id="1_228jm"]
 [ext_resource type="PackedScene" uid="uid://l1e0ehg4v1xm" path="res://scenes/player.tscn" id="1_u7djx"]
+[ext_resource type="PackedScene" uid="uid://fhll23i53c2g" path="res://scenes/Sun.tscn" id="3_8ogpx"]
+[ext_resource type="PackedScene" uid="uid://b73uok2w7ore" path="res://scenes/Mercury.tscn" id="4_j4qti"]
+[ext_resource type="PackedScene" uid="uid://br4c5jr6ijosp" path="res://scenes/Venus.tscn" id="5_qytic"]
+[ext_resource type="PackedScene" uid="uid://j2knq6n7e20a" path="res://scenes/Earth.tscn" id="6_1lmcy"]
+[ext_resource type="PackedScene" uid="uid://bhxv2b88j16pe" path="res://scenes/Mars.tscn" id="7_o5t44"]
+[ext_resource type="PackedScene" uid="uid://bq7uyxefna4vs" path="res://scenes/Jupiter.tscn" id="8_rt42q"]
+[ext_resource type="PackedScene" uid="uid://dfiorfpgnklkb" path="res://scenes/Saturn.tscn" id="9_82r0s"]
+[ext_resource type="PackedScene" uid="uid://rqky7v23bnhi" path="res://scenes/Uranus.tscn" id="10_m6wcf"]
+[ext_resource type="PackedScene" uid="uid://ego0b0dy4j2x" path="res://scenes/Neptune.tscn" id="11_v8g1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0766e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u7djx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjb5t"]
+albedo_texture = ExtResource("1_228jm")
 
 [node name="SolarSystemRoot" type="Node3D"]
 
@@ -13,12 +26,33 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestFloor"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10000, 0, 0, 0, 0.2, 0, 0, 0, 10000, 0, 0, 0)
 shape = SubResource("BoxShape3D_0766e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestFloor"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10000, 0, 0, 0, 0.2, 0, 0, 0, 10000, 0, 0, 0)
 mesh = SubResource("BoxMesh_u7djx")
+surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 
 [node name="Player" parent="." instance=ExtResource("1_u7djx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1331203, 0)
+
+[node name="Planets" type="Node3D" parent="."]
+
+[node name="Sun" parent="Planets" instance=ExtResource("3_8ogpx")]
+
+[node name="Mercury" parent="Planets" instance=ExtResource("4_j4qti")]
+
+[node name="Venus" parent="Planets" instance=ExtResource("5_qytic")]
+
+[node name="Earth" parent="Planets" instance=ExtResource("6_1lmcy")]
+
+[node name="Mars" parent="Planets" instance=ExtResource("7_o5t44")]
+
+[node name="Jupiter" parent="Planets" instance=ExtResource("8_rt42q")]
+
+[node name="Saturn" parent="Planets" instance=ExtResource("9_82r0s")]
+
+[node name="Uranus" parent="Planets" instance=ExtResource("10_m6wcf")]
+
+[node name="Neptune" parent="Planets" instance=ExtResource("11_v8g1n")]
