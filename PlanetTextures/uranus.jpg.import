@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cddvnexk6f3fb"
 path.s3tc="res://.godot/imported/uranus.jpg-5e6f310ec437ccdfd139d4c6f4eb7286.s3tc.ctex"
+path.etc2="res://.godot/imported/uranus.jpg-5e6f310ec437ccdfd139d4c6f4eb7286.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/uranus.jpg"
-dest_files=["res://.godot/imported/uranus.jpg-5e6f310ec437ccdfd139d4c6f4eb7286.s3tc.ctex"]
+dest_files=["res://.godot/imported/uranus.jpg-5e6f310ec437ccdfd139d4c6f4eb7286.s3tc.ctex", "res://.godot/imported/uranus.jpg-5e6f310ec437ccdfd139d4c6f4eb7286.etc2.ctex"]
 
 [params]
 

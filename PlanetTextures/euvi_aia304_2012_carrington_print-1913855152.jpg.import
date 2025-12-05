@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccloeewxmq7hl"
 path.s3tc="res://.godot/imported/euvi_aia304_2012_carrington_print-1913855152.jpg-24a4abe7e58758acc86f2031b2b883c0.s3tc.ctex"
+path.etc2="res://.godot/imported/euvi_aia304_2012_carrington_print-1913855152.jpg-24a4abe7e58758acc86f2031b2b883c0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/euvi_aia304_2012_carrington_print-1913855152.jpg"
-dest_files=["res://.godot/imported/euvi_aia304_2012_carrington_print-1913855152.jpg-24a4abe7e58758acc86f2031b2b883c0.s3tc.ctex"]
+dest_files=["res://.godot/imported/euvi_aia304_2012_carrington_print-1913855152.jpg-24a4abe7e58758acc86f2031b2b883c0.s3tc.ctex", "res://.godot/imported/euvi_aia304_2012_carrington_print-1913855152.jpg-24a4abe7e58758acc86f2031b2b883c0.etc2.ctex"]
 
 [params]
 

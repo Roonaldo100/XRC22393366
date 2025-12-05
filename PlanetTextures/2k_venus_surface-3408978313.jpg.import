@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyvnqlhwpsat5"
 path.s3tc="res://.godot/imported/2k_venus_surface-3408978313.jpg-9c1010c196710e52316dc455a151b6ad.s3tc.ctex"
+path.etc2="res://.godot/imported/2k_venus_surface-3408978313.jpg-9c1010c196710e52316dc455a151b6ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/2k_venus_surface-3408978313.jpg"
-dest_files=["res://.godot/imported/2k_venus_surface-3408978313.jpg-9c1010c196710e52316dc455a151b6ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/2k_venus_surface-3408978313.jpg-9c1010c196710e52316dc455a151b6ad.s3tc.ctex", "res://.godot/imported/2k_venus_surface-3408978313.jpg-9c1010c196710e52316dc455a151b6ad.etc2.ctex"]
 
 [params]
 

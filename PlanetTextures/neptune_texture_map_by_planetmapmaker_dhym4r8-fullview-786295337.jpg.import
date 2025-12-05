@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://2u22gdg24x63"
 path.s3tc="res://.godot/imported/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg-bea7019d162067cb51c8166cc0d795a6.s3tc.ctex"
+path.etc2="res://.godot/imported/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg-bea7019d162067cb51c8166cc0d795a6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg"
-dest_files=["res://.godot/imported/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg-bea7019d162067cb51c8166cc0d795a6.s3tc.ctex"]
+dest_files=["res://.godot/imported/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg-bea7019d162067cb51c8166cc0d795a6.s3tc.ctex", "res://.godot/imported/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg-bea7019d162067cb51c8166cc0d795a6.etc2.ctex"]
 
 [params]
 

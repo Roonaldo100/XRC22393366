@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://2j8n7rgiopgv"
 path.s3tc="res://.godot/imported/2k_mercury-3929006871.jpg-1fcbbc3b494f54897e9181a2024eb034.s3tc.ctex"
+path.etc2="res://.godot/imported/2k_mercury-3929006871.jpg-1fcbbc3b494f54897e9181a2024eb034.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/2k_mercury-3929006871.jpg"
-dest_files=["res://.godot/imported/2k_mercury-3929006871.jpg-1fcbbc3b494f54897e9181a2024eb034.s3tc.ctex"]
+dest_files=["res://.godot/imported/2k_mercury-3929006871.jpg-1fcbbc3b494f54897e9181a2024eb034.s3tc.ctex", "res://.godot/imported/2k_mercury-3929006871.jpg-1fcbbc3b494f54897e9181a2024eb034.etc2.ctex"]
 
 [params]
 

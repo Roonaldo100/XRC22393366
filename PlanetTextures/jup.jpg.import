@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv06bxgvbvbbo"
 path.s3tc="res://.godot/imported/jup.jpg-6b54746da9b4cb7609ff23de3034433f.s3tc.ctex"
+path.etc2="res://.godot/imported/jup.jpg-6b54746da9b4cb7609ff23de3034433f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/jup.jpg"
-dest_files=["res://.godot/imported/jup.jpg-6b54746da9b4cb7609ff23de3034433f.s3tc.ctex"]
+dest_files=["res://.godot/imported/jup.jpg-6b54746da9b4cb7609ff23de3034433f.s3tc.ctex", "res://.godot/imported/jup.jpg-6b54746da9b4cb7609ff23de3034433f.etc2.ctex"]
 
 [params]
 

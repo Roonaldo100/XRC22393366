@@ -35,7 +35,7 @@ mesh = SubResource("BoxMesh_u7djx")
 surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 
 [node name="Player" parent="." instance=ExtResource("1_u7djx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1331203, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5724025, 0)
 
 [node name="Planets" type="Node3D" parent="."]
 

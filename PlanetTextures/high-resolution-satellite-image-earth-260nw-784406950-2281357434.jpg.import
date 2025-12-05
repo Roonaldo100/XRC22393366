@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwl03jmtqt6td"
 path.s3tc="res://.godot/imported/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg-01b045a4abfd8e58282e8d22fec07e7c.s3tc.ctex"
+path.etc2="res://.godot/imported/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg-01b045a4abfd8e58282e8d22fec07e7c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://PlanetTextures/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg"
-dest_files=["res://.godot/imported/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg-01b045a4abfd8e58282e8d22fec07e7c.s3tc.ctex"]
+dest_files=["res://.godot/imported/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg-01b045a4abfd8e58282e8d22fec07e7c.s3tc.ctex", "res://.godot/imported/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg-01b045a4abfd8e58282e8d22fec07e7c.etc2.ctex"]
 
 [params]
 
