@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://epnjcy3fvefw"]
 
-[ext_resource type="Script" uid="uid://csmrxdgmm6ef0" path="res://scripts/planet_rotation.gd" id="1_cnv6o"]
+[ext_resource type="Script" uid="uid://csmrxdgmm6ef0" path="res://scripts/planet_script.gd" id="1_cnv6o"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_5mdjf"]
 

@@ -1,9 +1,9 @@
 extends Node3D
 
-# Earth reference values
+# Earth reference values (your chosen units)
 const EARTH_RADIUS := 5.0              # Earth sphere radius in Godot
 const EARTH_ROTATION_SPEED := 1.0      # Earth day = baseline
-const SUN_Z_POSITION := 6000.0         # Sun location
+const SUN_Z_POSITION := 6000.0         # Your chosen sun location
 const SUN_SCALE := 545.0               # Sun scale (radius in Godot units)
 
 # Planet data
@@ -11,7 +11,7 @@ const SUN_SCALE := 545.0               # Sun scale (radius in Godot units)
 const PLANET_DATA := {
 	"Sun": {
 		"scale_ratio": 109.0,     # Sun is 109× Earth diameter
-		"rotation_period": 27.0,  # Approx average solar day
+		"rotation_period": 27.0,  # Approx average solar day (not critical)
 		"distance": 0.0
 	},
 	"Mercury": {
@@ -21,7 +21,7 @@ const PLANET_DATA := {
 	},
 	"Venus": {
 		"scale_ratio": 0.95,
-		"rotation_period": 243.0,     # retrograde
+		"rotation_period": 243.0,     # retrograde but magnitude is fine
 		"distance": 108.2
 	},
 	"Earth": {
@@ -46,7 +46,7 @@ const PLANET_DATA := {
 	},
 	"Uranus": {
 		"scale_ratio": 4.01,
-		"rotation_period": 0.72,       # retrograde
+		"rotation_period": 0.72,       # technically retrograde
 		"distance": 2871.0
 	},
 	"Neptune": {
@@ -58,6 +58,7 @@ const PLANET_DATA := {
 
 var rotation_speed := 1.0
 
+
 func _ready():
 	var planet_name := name
 
@@ -65,8 +66,7 @@ func _ready():
 		push_error("Planet data missing for " + planet_name)
 		return
 
-	var data: Dictionary[String, Variant] = PLANET_DATA[planet_name]
-
+	var data : Dictionary = PLANET_DATA[planet_name]
 
 	# Extract values
 	var scale_ratio: float = data["scale_ratio"]
@@ -80,19 +80,25 @@ func _ready():
 	scale = Vector3.ONE * radius
 
 	# 2) Compute rotation speed
+	# Earth speed = 1 rotation per day
+	# Planet speed = 1 / rotation_period
 	rotation_speed = EARTH_ROTATION_SPEED / rotation_period
 
 	# 3) Compute Z transform position
+	# sun_z - sun_radius - distance (in millions of km) - planet_radius
 	var sun_radius := SUN_SCALE
-	var z_pos := SUN_Z_POSITION - sun_radius - distance_million_km - radius
+	var z_pos: float
+	if planet_name != "Sun":
+		z_pos = SUN_Z_POSITION - sun_radius - distance_million_km - radius
+	else:
+		z_pos = SUN_Z_POSITION
 	position.z = z_pos
 
-	print(
-		"Configured ", planet_name,
+	print("Configured ", planet_name,
 		" | scale=", radius,
 		" | rotation_speed=", rotation_speed,
-		" | z=", z_pos
-	)
+		" | z=", z_pos)
+
 
 func _process(delta):
 	# Simple axial rotation

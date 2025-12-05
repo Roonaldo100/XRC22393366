@@ -21,6 +21,7 @@ tracker = &"left_hand"
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("1_qlg0r")]
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("1_qhqgy")]
+max_speed = 300.0
 strafe = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
