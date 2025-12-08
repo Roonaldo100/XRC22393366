@@ -56,6 +56,14 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	player_body.ground_control_velocity.y += dz_input_action.y * max_speed
 	if strafe:
 		player_body.ground_control_velocity.x += dz_input_action.x * max_speed
+		
+	if _controller.is_button_pressed("ax_button"):
+		player_body.velocity.y = max_speed
+	elif _controller.is_button_pressed("by_button"):
+		player_body.velocity.y = -max_speed
+	else:
+		player_body.velocity.y = 0.0
+
 
 	# Clamp ground control
 	var length := player_body.ground_control_velocity.length()
