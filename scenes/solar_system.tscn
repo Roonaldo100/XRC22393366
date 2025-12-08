@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d83lesg6uh1b"]
+[gd_scene load_steps=20 format=3 uid="uid://d83lesg6uh1b"]
 
 [ext_resource type="Texture2D" uid="uid://dwl03jmtqt6td" path="res://PlanetTextures/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg" id="1_228jm"]
 [ext_resource type="PackedScene" uid="uid://l1e0ehg4v1xm" path="res://scenes/player.tscn" id="1_u7djx"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://rqky7v23bnhi" path="res://scenes/Uranus.tscn" id="10_m6wcf"]
 [ext_resource type="PackedScene" uid="uid://ego0b0dy4j2x" path="res://scenes/Neptune.tscn" id="11_v8g1n"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="12_j4qti"]
+[ext_resource type="Texture2D" uid="uid://vmvol1a1vf5w" path="res://PlanetTextures/Space.jpg" id="13_qytic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0766e"]
 
@@ -19,6 +20,16 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjb5t"]
 albedo_texture = ExtResource("1_228jm")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1lmcy"]
+panorama = ExtResource("13_qytic")
+
+[sub_resource type="Sky" id="Sky_o5t44"]
+sky_material = SubResource("PanoramaSkyMaterial_1lmcy")
+
+[sub_resource type="Environment" id="Environment_rt42q"]
+background_mode = 2
+sky = SubResource("Sky_o5t44")
 
 [node name="SolarSystemRoot" type="Node3D"]
 
@@ -32,6 +43,7 @@ shape = SubResource("BoxShape3D_0766e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestFloor"]
 transform = Transform3D(10000, 0, 0, 0, 0.2, 0, 0, 0, 10000, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_u7djx")
 surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 
@@ -42,11 +54,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5724025, 0)
 
 [node name="Sun" parent="Planets" instance=ExtResource("3_8ogpx")]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Planets/Sun"]
+light_energy = 5.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.15
+shadow_normal_bias = 0.8
+shadow_transmittance_bias = 0.0
+omni_range = 6000.0
+omni_attenuation = 0.02
+
 [node name="Mercury" parent="Planets" instance=ExtResource("4_j4qti")]
 
 [node name="Venus" parent="Planets" instance=ExtResource("5_qytic")]
 
 [node name="Earth" parent="Planets" instance=ExtResource("6_1lmcy")]
+ORBIT_SCALE = 3.65
 
 [node name="Mars" parent="Planets" instance=ExtResource("7_o5t44")]
 
@@ -59,3 +82,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5724025, 0)
 [node name="Neptune" parent="Planets" instance=ExtResource("11_v8g1n")]
 
 [node name="StartXR" parent="." instance=ExtResource("12_j4qti")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rt42q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+visible = false
+light_energy = 4.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 8192.0

@@ -5,7 +5,8 @@ const EARTH_RADIUS := 5.0
 const EARTH_ROTATION_SPEED := 1.0      # Earth day
 const SUN_Z_POSITION := 6000.0
 const SUN_SCALE := 545.0               # Godot radius of the Sun
-const ORBIT_SCALE := 15.00
+
+@export var ORBIT_SCALE : float = 2.0
 
 #  PLANET DATA 
 const PLANET_DATA := {
@@ -103,9 +104,9 @@ func _ready():
 		orbit_radius = sun_radius + distance_million_km + radius
 
 		# orbital angular speed:
-		# complete orbit in (orbital_period_days / 15) seconds
+		# complete orbit in (orbital_period_days / ORBIT_SCALE) seconds
 		var orbit_duration := orbital_period_days / ORBIT_SCALE   # seconds per full orbit
-		orbit_speed = (TAU / orbit_duration)               # radians per second
+		orbit_speed = (TAU / orbit_duration)  # radians per second
 
 		# starting angle = 0 → starting z placement matches earlier behavior
 		position = orbit_center + Vector3(0, 0, -orbit_radius)
@@ -122,10 +123,10 @@ func _ready():
 
 
 func _process(delta):
-	# ---- AXIAL SPIN ----
+	# AXIAL SPIN
 	rotate_y(rotation_speed * delta)
 
-	# ---- ORBITAL MOTION ----
+	# ORBITAL MOTION
 	if orbit_speed != 0.0:
 		orbit_angle += orbit_speed * delta
 

@@ -28,6 +28,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/use_debanding=true
 
 [xr]
 

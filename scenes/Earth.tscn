@@ -5,6 +5,8 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4aoe"]
 albedo_texture = ExtResource("2_fwnyk")
+emission = Color(0.05882353, 0.3372549, 1, 1)
+emission_energy_multiplier = 0.05
 
 [node name="Node3D" instance=ExtResource("1_2bxnb")]
 
