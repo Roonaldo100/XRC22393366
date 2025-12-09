@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://d83lesg6uh1b"]
+[gd_scene load_steps=21 format=3 uid="uid://d83lesg6uh1b"]
 
 [ext_resource type="Texture2D" uid="uid://dwl03jmtqt6td" path="res://PlanetTextures/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg" id="1_228jm"]
 [ext_resource type="PackedScene" uid="uid://l1e0ehg4v1xm" path="res://scenes/player.tscn" id="1_u7djx"]
+[ext_resource type="Script" uid="uid://csmrxdgmm6ef0" path="res://scripts/planet_script.gd" id="3_1lmcy"]
 [ext_resource type="PackedScene" uid="uid://fhll23i53c2g" path="res://scenes/Sun.tscn" id="3_8ogpx"]
 [ext_resource type="PackedScene" uid="uid://b73uok2w7ore" path="res://scenes/Mercury.tscn" id="4_j4qti"]
 [ext_resource type="PackedScene" uid="uid://br4c5jr6ijosp" path="res://scenes/Venus.tscn" id="5_qytic"]
@@ -51,6 +52,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5724025, 0)
 
 [node name="Planets" type="Node3D" parent="."]
+script = ExtResource("3_1lmcy")
+ORBIT_SCALE = 1.0
 
 [node name="Sun" parent="Planets" instance=ExtResource("3_8ogpx")]
 
@@ -70,7 +73,6 @@ omni_attenuation = 0.02
 [node name="Venus" parent="Planets" instance=ExtResource("5_qytic")]
 
 [node name="Earth" parent="Planets" instance=ExtResource("6_1lmcy")]
-ORBIT_SCALE = 3.65
 
 [node name="Mars" parent="Planets" instance=ExtResource("7_o5t44")]
 
