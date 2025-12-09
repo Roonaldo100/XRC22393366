@@ -110,7 +110,7 @@ func _ready():
 
 		# starting angle = 0 → starting z placement matches earlier behavior
 		position = orbit_center + Vector3(0, 0, -orbit_radius)
-		position.y = radius
+		position.y = SUN_SCALE
 	else:
 		# The sun doesn’t orbit anything
 		position = Vector3(0, radius, SUN_Z_POSITION)

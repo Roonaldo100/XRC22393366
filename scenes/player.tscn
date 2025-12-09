@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://l1e0ehg4v1xm"]
+[gd_scene load_steps=9 format=3 uid="uid://l1e0ehg4v1xm"]
 
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_qlg0r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_fjrip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlg0r"]
 
@@ -33,6 +34,8 @@ tracker = &"right_hand"
 order = 10
 
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("4_tuyoq")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/RightHand" instance=ExtResource("6_fjrip")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("3_qlg0r")]
 ground_control = 2

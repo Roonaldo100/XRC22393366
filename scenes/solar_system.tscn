@@ -55,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5724025, 0)
 [node name="Sun" parent="Planets" instance=ExtResource("3_8ogpx")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Planets/Sun"]
+light_color = Color(0.99948865, 0.95590395, 0.8222692, 1)
 light_energy = 5.0
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
