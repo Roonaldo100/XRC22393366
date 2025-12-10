@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://l1e0ehg4v1xm"]
+[gd_scene load_steps=10 format=3 uid="uid://l1e0ehg4v1xm"]
 
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_qlg0r"]
-[ext_resource type="Script" uid="uid://jl8cc38crac" path="res://scenes/player_setup.gd" id="1_tuyoq"]
+[ext_resource type="Script" uid="uid://jl8cc38crac" path="res://scripts/player_setup.gd" id="1_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://b0mwmuayiijdt" path="res://scenes/open_menu.gd" id="4_smehm"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_fjrip"]
 
@@ -29,6 +30,7 @@ strafe = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+script = ExtResource("4_smehm")
 
 [node name="MovementTurn" parent="XROrigin3D/RightHand" instance=ExtResource("2_dqkch")]
 order = 10
@@ -42,3 +44,5 @@ ground_control = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
 shape = SubResource("CapsuleShape3D_qlg0r")
+
+[connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/RightHand" method="_on_button_pressed"]
