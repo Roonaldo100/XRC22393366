@@ -8,7 +8,8 @@
 albedo_texture = ExtResource("2_8xvgk")
 emission_enabled = true
 emission = Color(0.69803923, 0, 0, 1)
-emission_energy_multiplier = 0.05
+emission_energy_multiplier = 1.52
+emission_texture = ExtResource("2_8xvgk")
 
 [node name="Node3D" instance=ExtResource("1_s0bcd")]
 

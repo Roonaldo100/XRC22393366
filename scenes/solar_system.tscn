@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d83lesg6uh1b"]
+[gd_scene load_steps=25 format=3 uid="uid://d83lesg6uh1b"]
 
 [ext_resource type="Texture2D" uid="uid://dwl03jmtqt6td" path="res://PlanetTextures/high-resolution-satellite-image-earth-260nw-784406950-2281357434.jpg" id="1_228jm"]
 [ext_resource type="PackedScene" uid="uid://l1e0ehg4v1xm" path="res://scenes/player.tscn" id="1_u7djx"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://vmvol1a1vf5w" path="res://PlanetTextures/Space.jpg" id="13_qytic"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="15_o5t44"]
 [ext_resource type="PackedScene" uid="uid://ds8g0dlpebp7w" path="res://scenes/vr_menu.tscn" id="16_rt42q"]
+[ext_resource type="Script" uid="uid://cpk0cguhmict1" path="res://scripts/alien_manager.gd" id="17_82r0s"]
+[ext_resource type="PackedScene" uid="uid://c7r8du5rqn5bo" path="res://scenes/alien.tscn" id="18_m6wcf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0766e"]
 
@@ -53,9 +55,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 [node name="Player" parent="." instance=ExtResource("1_u7djx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5724025, 0)
 
-[node name="RightHand" parent="Player/XROrigin3D" index="2" node_paths=PackedStringArray("menu", "cam")]
-menu = NodePath("../../../Menu")
-cam = NodePath("../XRCamera3D")
+[node name="RightHand" parent="Player/XROrigin3D" index="2" node_paths=PackedStringArray("AlienManager")]
+AlienManager = NodePath("../../../AlienManager")
 
 [node name="Planets" type="Node3D" parent="."]
 script = ExtResource("3_1lmcy")
@@ -112,5 +113,10 @@ scene = ExtResource("16_rt42q")
 viewport_size = Vector2(640, 360)
 unshaded = true
 scene_properties_keys = PackedStringArray()
+
+[node name="AlienManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("17_82r0s")
+alien_scene = ExtResource("18_m6wcf")
+player = NodePath("../Player/XROrigin3D/XRCamera3D")
 
 [editable path="Player"]

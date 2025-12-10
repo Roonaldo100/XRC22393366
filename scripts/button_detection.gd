@@ -1,15 +1,16 @@
 extends XRController3D
 
-@export var menu : Node3D
-@export var cam : XRCamera3D
+#@export var menu : Node3D
+#@export var cam : XRCamera3D
+@export var AlienManager : Node3D
 
-func _ready() -> void:
-	if !menu:
-		push_error("need to assign the menu export")
-		return
-	if !cam:
-		push_error("need to assign the camera export")
-		return
+#func _ready() -> void:
+	#if !menu:
+		#push_error("need to assign the menu export")
+		#return
+	#if !cam:
+		#push_error("need to assign the camera export")
+		#return
 		
 	
 
@@ -26,4 +27,8 @@ func _on_button_pressed(name: String) -> void:
 			SolarSettings.orbit_paused = true
 		else:
 			SolarSettings.orbit_paused = false
+			
+	if name == "by_button":
+		print("pressed b button")
+		AlienManager.toggle_shooter()
 		

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://jl8cc38crac" path="res://scripts/player_setup.gd" id="1_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_qlg0r"]
-[ext_resource type="Script" uid="uid://b0mwmuayiijdt" path="res://scenes/open_menu.gd" id="4_smehm"]
+[ext_resource type="Script" uid="uid://b0mwmuayiijdt" path="res://scripts/button_detection.gd" id="4_smehm"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_fjrip"]
