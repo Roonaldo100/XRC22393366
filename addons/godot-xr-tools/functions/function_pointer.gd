@@ -217,6 +217,9 @@ func _process(_delta):
 	if new_target and not last_target:
 		# Pointer entered new_target
 		XRToolsPointerEvent.entered(self, new_target, new_at)
+		
+		#Audio Addition
+		_play_audio_on_target(new_target)
 
 		# Pointer moved on new_target for the first time
 		XRToolsPointerEvent.moved(self, new_target, new_at, new_at)
@@ -509,3 +512,16 @@ func _visible_miss() -> void:
 	# Restore laser length if set to collide-length
 	$Laser.mesh.size.z = distance
 	$Laser.position.z = distance * -0.5
+	
+func _play_audio_on_target(target_node: Node) -> void:
+	# Try to find an audio player inside the target
+	var audio := target_node.get_node_or_null("AudioStreamPlayer3D")
+	if audio and audio is AudioStreamPlayer3D:
+		audio.play()
+		return
+
+	# Try any AudioStreamPlayer3D anywhere in its children
+	for child in target_node.get_children():
+		if child is AudioStreamPlayer3D:
+			child.play()
+			return

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq7uyxefna4vs"]
+[gd_scene load_steps=5 format=3 uid="uid://bq7uyxefna4vs"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_7et30"]
 [ext_resource type="Texture2D" uid="uid://bv06bxgvbvbbo" path="res://PlanetTextures/jup.jpg" id="2_x4wxr"]
+[ext_resource type="AudioStream" uid="uid://1yx6ru8a5ho" path="res://Audio/Jupiter.mp3" id="3_x4wxr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3m30"]
 albedo_texture = ExtResource("2_x4wxr")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_x4wxr")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_g3m30")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_x4wxr")

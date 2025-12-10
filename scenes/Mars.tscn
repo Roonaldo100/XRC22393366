@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhxv2b88j16pe"]
+[gd_scene load_steps=5 format=3 uid="uid://bhxv2b88j16pe"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_ybrcs"]
 [ext_resource type="Texture2D" uid="uid://kc685rvxg4up" path="res://PlanetTextures/mars.jpg" id="2_yq1vd"]
+[ext_resource type="AudioStream" uid="uid://dfyjuu6yg2hew" path="res://Audio/Mars.mp3" id="3_yq1vd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykif0"]
 albedo_texture = ExtResource("2_yq1vd")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_yq1vd")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ykif0")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_yq1vd")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://rqky7v23bnhi"]
+[gd_scene load_steps=5 format=3 uid="uid://rqky7v23bnhi"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_pkhan"]
 [ext_resource type="Texture2D" uid="uid://cddvnexk6f3fb" path="res://PlanetTextures/uranus.jpg" id="2_umbbf"]
+[ext_resource type="AudioStream" uid="uid://cfmnoxvxerqaf" path="res://Audio/Uranus.mp3" id="3_umbbf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1o6y4"]
 albedo_texture = ExtResource("2_umbbf")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_umbbf")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_1o6y4")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_umbbf")

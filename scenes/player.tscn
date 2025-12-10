@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://l1e0ehg4v1xm"]
+[gd_scene load_steps=11 format=3 uid="uid://l1e0ehg4v1xm"]
 
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_qlg0r"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://b0mwmuayiijdt" path="res://scenes/open_menu.gd" id="4_smehm"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_fjrip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlg0r"]
@@ -27,6 +28,11 @@ tracker = &"left_hand"
 [node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("1_qhqgy")]
 max_speed = 300.0
 strafe = true
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("4_ur7pv")]
+distance = 500.0
+collision_mask = 5242882
+collide_with_areas = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"

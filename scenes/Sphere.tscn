@@ -5,9 +5,13 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_cnv6o"]
 
 [node name="Node3D" type="StaticBody3D"]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_5mdjf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_cnv6o")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 20.0

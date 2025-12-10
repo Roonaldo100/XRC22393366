@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://br4c5jr6ijosp"]
+[gd_scene load_steps=5 format=3 uid="uid://br4c5jr6ijosp"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_gyq7v"]
 [ext_resource type="Texture2D" uid="uid://cyvnqlhwpsat5" path="res://PlanetTextures/2k_venus_surface-3408978313.jpg" id="2_k0cy4"]
+[ext_resource type="AudioStream" uid="uid://bbrp1bht602qe" path="res://Audio/Venus.mp3" id="3_k0cy4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q02o4"]
 albedo_texture = ExtResource("2_k0cy4")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_k0cy4")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_q02o4")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_k0cy4")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfiorfpgnklkb"]
+[gd_scene load_steps=5 format=3 uid="uid://dfiorfpgnklkb"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_x8q3y"]
 [ext_resource type="Texture2D" uid="uid://cfa3gr7gndint" path="res://PlanetTextures/saturn-3976164257.jpg" id="2_u1gep"]
+[ext_resource type="AudioStream" uid="uid://bc2nd0dm8m3ul" path="res://Audio/Saturn.mp3" id="3_u1gep"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6fhm"]
 albedo_texture = ExtResource("2_u1gep")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_u1gep")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_o6fhm")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_u1gep")

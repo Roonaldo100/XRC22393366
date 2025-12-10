@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ego0b0dy4j2x"]
+[gd_scene load_steps=5 format=3 uid="uid://ego0b0dy4j2x"]
 
 [ext_resource type="PackedScene" uid="uid://epnjcy3fvefw" path="res://scenes/Sphere.tscn" id="1_tew8q"]
 [ext_resource type="Texture2D" uid="uid://2u22gdg24x63" path="res://PlanetTextures/neptune_texture_map_by_planetmapmaker_dhym4r8-fullview-786295337.jpg" id="2_3aty0"]
+[ext_resource type="AudioStream" uid="uid://d2xtq2i3nicc7" path="res://Audio/Neptune.mp3" id="3_3aty0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbth5"]
 albedo_texture = ExtResource("2_3aty0")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_3aty0")
 
 [node name="MeshInstance3D" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_rbth5")
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_3aty0")
