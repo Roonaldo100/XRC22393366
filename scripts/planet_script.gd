@@ -77,6 +77,9 @@ func _process(delta: float) -> void:
 		var orbit_center : Vector3 = p["orbit_center"]
 
 		node.rotate_y(rotation_speed * delta)
+		
+		if SolarSettings.orbit_paused:
+			continue
 
 		if orbit_speed > 0.0:
 			orbit_angle += orbit_speed * delta

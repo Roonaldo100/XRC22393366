@@ -105,6 +105,7 @@ directional_shadow_max_distance = 8192.0
 
 [node name="Menu" parent="." instance=ExtResource("15_o5t44")]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 545, 1000)
+visible = false
 screen_size = Vector2(1280, 768)
 collision_layer = 5242884
 scene = ExtResource("16_rt42q")
