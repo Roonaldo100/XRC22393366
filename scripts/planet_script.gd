@@ -1,10 +1,7 @@
 extends Node3D
 
 # Earth reference values
-const EARTH_RADIUS := 5.0
-const EARTH_ROTATION_SPEED := 1.0
 const SUN_Z_POSITION := 6000.0
-const SUN_SCALE := EARTH_RADIUS * 109.0
 
 @export var ORBIT_SCALE : float = 2.0    # Speed factor for all orbits
 
@@ -38,22 +35,22 @@ func _ready():
 		var distance_million_km : float = data["distance"]
 		var orbital_period_days : float = data["orbital_period"]
 
-		var radius : float = EARTH_RADIUS * scale_ratio
+		var radius : float = SolarSettings.earth_radius * scale_ratio
 		(child as Node3D).scale = Vector3.ONE * radius
 
-		var rotation_speed : float = EARTH_ROTATION_SPEED / rotation_period
+		var rotation_speed : float = SolarSettings.earth_rotation_speed / rotation_period
 
 		var orbit_radius : float = 0.0
 		var orbit_speed : float = 0.0
 		var orbit_center : Vector3 = Vector3(0.0, 0.0, SUN_Z_POSITION)
 
 		if child.name != "Sun":
-			orbit_radius = SUN_SCALE + distance_million_km + radius
-			var orbit_duration : float = orbital_period_days / ORBIT_SCALE
+			orbit_radius = SolarSettings.sun_scale + distance_million_km + radius
+			var orbit_duration : float = orbital_period_days / SolarSettings.orbit_scale
 			orbit_speed = TAU / orbit_duration
 
 			var start_pos : Vector3 = orbit_center + Vector3(0.0, 0.0, -orbit_radius)
-			start_pos.y = SUN_SCALE
+			start_pos.y = SolarSettings.sun_scale
 			(child as Node3D).position = start_pos
 		else:
 			(child as Node3D).position = Vector3(0.0, radius, SUN_Z_POSITION)
