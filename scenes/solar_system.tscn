@@ -53,6 +53,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 [node name="Player" parent="." instance=ExtResource("1_u7djx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5724025, 0)
 
+[node name="RightHand" parent="Player/XROrigin3D" index="2" node_paths=PackedStringArray("menu", "cam")]
+menu = NodePath("../../../Menu")
+cam = NodePath("../XRCamera3D")
+
 [node name="Planets" type="Node3D" parent="."]
 script = ExtResource("3_1lmcy")
 ORBIT_SCALE = 1.0
@@ -99,7 +103,7 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 8192.0
 
-[node name="Viewport2Din3D" parent="." instance=ExtResource("15_o5t44")]
+[node name="Menu" parent="." instance=ExtResource("15_o5t44")]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 545, 1000)
 screen_size = Vector2(1280, 768)
 collision_layer = 5242884
@@ -107,3 +111,5 @@ scene = ExtResource("16_rt42q")
 viewport_size = Vector2(640, 360)
 unshaded = true
 scene_properties_keys = PackedStringArray()
+
+[editable path="Player"]
