@@ -423,12 +423,9 @@ func _button_pressed() -> void:
 	if $RayCast.is_colliding():
 		# Report pressed
 		target = $RayCast.get_collider()
+		print(target)
 		last_collided_at = $RayCast.get_collision_point()
 		XRToolsPointerEvent.pressed(self, target, last_collided_at)
-		
-		if target and target.has_method("die"):
-			target.die()
-			return
 
 
 # Pointer-activation button released handler
@@ -442,22 +439,32 @@ func _button_released() -> void:
 
 # Button pressed handler
 func _on_button_pressed(p_button : String, controller : XRController3D) -> void:
+	if p_button != active_button_action:
+		return
+
 	if not $RayCast.is_colliding():
 		return
 
 	target = $RayCast.get_collider()
 	last_collided_at = $RayCast.get_collision_point()
-	XRToolsPointerEvent.pressed(self, target, last_collided_at)
 
-	# --- AUDIO LOGIC ---
-	var audio := _play_audio_on_target(target)
+	# AUDIO
+	var audio = _play_audio_on_target(target)
 	if audio:
-		# Stop previous audio if playing
 		if _current_audio and _current_audio != audio:
 			_current_audio.stop()
-
 		_current_audio = audio
 		_current_audio.play()
+
+	# --- ALIEN SHOOT LOGIC ---
+	var kill_node := target
+
+	# Walk up until we find something with die()
+	while kill_node and not kill_node.has_method("die"):
+		kill_node = kill_node.get_parent()
+
+	if kill_node and kill_node.has_method("die"):
+		kill_node.die()
 
 
 # Button released handler

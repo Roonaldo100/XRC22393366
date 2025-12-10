@@ -25,6 +25,12 @@ SolarSettings="*res://scripts/SolarSettings.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Planets"
+3d_physics/layer_4="alien"
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -1,15 +1,16 @@
 extends Node3D
 
-var player: Node3D
+var player: Node3D        # XRCamera3D for tracking
+var player_body: Node3D   # XRToolsPlayerBody for collision
 var manager
-var speed := 2.0
+var speed := 10.0
 
 func _process(delta):
 	if not player:
 		return
 
 	var pos = global_transform.origin
-	var target = player.global_transform.origin  # follow the camera
+	var target = player.global_transform.origin
 
 	var dir = (target - pos).normalized()
 	pos += dir * speed * delta
@@ -19,8 +20,10 @@ func _process(delta):
 func die():
 	manager.alien_killed()
 	queue_free()
+	
 
-func _on_Area3D_body_entered(body):
-	if body == player:
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body == player_body:
 		manager.player_touched()
 		queue_free()

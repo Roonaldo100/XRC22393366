@@ -55,6 +55,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tjb5t")
 [node name="Player" parent="." instance=ExtResource("1_u7djx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5724025, 0)
 
+[node name="MovementDirect" parent="Player/XROrigin3D/LeftHand" index="1"]
+strafe = false
+
 [node name="RightHand" parent="Player/XROrigin3D" index="2" node_paths=PackedStringArray("AlienManager")]
 AlienManager = NodePath("../../../AlienManager")
 
@@ -114,9 +117,10 @@ viewport_size = Vector2(640, 360)
 unshaded = true
 scene_properties_keys = PackedStringArray()
 
-[node name="AlienManager" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+[node name="AlienManager" type="Node3D" parent="." node_paths=PackedStringArray("player_body", "player_camera")]
 script = ExtResource("17_82r0s")
 alien_scene = ExtResource("18_m6wcf")
-player = NodePath("../Player/XROrigin3D/XRCamera3D")
+player_body = NodePath("../Player/XROrigin3D/PlayerBody")
+player_camera = NodePath("../Player/XROrigin3D/XRCamera3D")
 
 [editable path="Player"]

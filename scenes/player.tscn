@@ -31,7 +31,7 @@ strafe = true
 
 [node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("4_ur7pv")]
 distance = 500.0
-collision_mask = 5242882
+collision_mask = 5242890
 collide_with_areas = true
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
@@ -46,6 +46,7 @@ order = 10
 [node name="FunctionTeleport" parent="XROrigin3D/RightHand" instance=ExtResource("6_fjrip")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("3_qlg0r")]
+collision_layer = 524289
 ground_control = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
