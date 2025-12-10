@@ -38,6 +38,8 @@ const DEFAULT_MASK := 0b0000_0000_0101_0000_0000_0000_0000_0000
 ## Default pointer collision mask of 23:ui-objects
 const SUPPRESS_MASK := 0b0000_0000_0100_0000_0000_0000_0000_0000
 
+var _current_audio: AudioStreamPlayer3D = null
+
 
 @export_group("General")
 
@@ -436,11 +438,22 @@ func _button_released() -> void:
 
 # Button pressed handler
 func _on_button_pressed(p_button : String, controller : XRController3D) -> void:
-	if p_button == active_button_action and enabled:
-		if controller == _active_controller:
-			_button_pressed()
-		else:
-			_active_controller = controller
+	if not $RayCast.is_colliding():
+		return
+
+	target = $RayCast.get_collider()
+	last_collided_at = $RayCast.get_collision_point()
+	XRToolsPointerEvent.pressed(self, target, last_collided_at)
+
+	# --- AUDIO LOGIC ---
+	var audio := _play_audio_on_target(target)
+	if audio:
+		# Stop previous audio if playing
+		if _current_audio and _current_audio != audio:
+			_current_audio.stop()
+
+		_current_audio = audio
+		_current_audio.play()
 
 
 # Button released handler
@@ -513,15 +526,15 @@ func _visible_miss() -> void:
 	$Laser.mesh.size.z = distance
 	$Laser.position.z = distance * -0.5
 	
-func _play_audio_on_target(target_node: Node) -> void:
+func _play_audio_on_target(target_node: Node) -> AudioStreamPlayer3D:
 	# Try to find an audio player inside the target
 	var audio := target_node.get_node_or_null("AudioStreamPlayer3D")
 	if audio and audio is AudioStreamPlayer3D:
-		audio.play()
-		return
+		return audio
 
 	# Try any AudioStreamPlayer3D anywhere in its children
 	for child in target_node.get_children():
 		if child is AudioStreamPlayer3D:
-			child.play()
-			return
+			return child
+
+	return null
