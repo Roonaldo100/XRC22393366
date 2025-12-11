@@ -456,7 +456,7 @@ func _on_button_pressed(p_button : String, controller : XRController3D) -> void:
 		_current_audio = audio
 		_current_audio.play()
 
-	# --- ALIEN SHOOT LOGIC ---
+	# ALIEN SHOOT LOGIC
 	var kill_node := target
 
 	# Walk up until we find something with die()
