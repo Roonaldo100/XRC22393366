@@ -127,7 +127,7 @@ player_camera = NodePath("../Player/XROrigin3D/XRCamera3D")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_v8g1n")
-volume_db = 2.0
+volume_db = -30.0
 autoplay = true
 parameters/looping = true
 

@@ -120,11 +120,16 @@ func _physics_process(delta):
 	# TELEPORT ON RELEASE 
 	if button_just_released and is_teleporting:
 		if can_teleport:
-			var new_transform := last_target_transform
-			new_transform.basis.y = player_body.up_player
-			new_transform.basis.x = new_transform.basis.y.cross(new_transform.basis.z).normalized()
-			new_transform.basis.z = new_transform.basis.x.cross(new_transform.basis.y).normalized()
+			var offset = Vector3.UP * (player_height * 0.5)
+			var new_transform = last_target_transform
+			new_transform.origin += offset
+
+			# reset rotation so you always stand upright
+			new_transform.basis = Basis()
+
 			player_body.teleport(new_transform)
+			player_body.velocity = Vector3.ZERO
+			player_body.ground_control_velocity = Vector2.ZERO
 
 		# shutdown visuals
 		is_teleporting = false

@@ -18,4 +18,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_77x26")
 
 [node name="AudioStreamPlayer3D" parent="." index="2"]
 stream = ExtResource("3_8xvgk")
-volume_db = 20.194
+volume_db = 40.0
