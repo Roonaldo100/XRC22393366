@@ -6,6 +6,8 @@ extends Node3D
 var alien: Node3D = null
 var shooter_enabled := false
 
+const SPAWN_RADIUS := 100.0
+
 func toggle_shooter():
 	shooter_enabled = !shooter_enabled
 
@@ -23,9 +25,11 @@ func _spawn_alien():
 	get_tree().current_scene.add_child(alien)
 
 	var p = player_camera.global_transform.origin
-	var spawn_z = -100.0
+	var angle := randf() * TAU
+	var offsetx := cos(angle) * SPAWN_RADIUS
+	var offsetz := sin(angle) * SPAWN_RADIUS
 
-	alien.global_transform.origin = Vector3(p.x, p.y, p.z + spawn_z)
+	alien.global_transform.origin = Vector3(p.x + offsetx, p.y, p.z + offsetz)
 
 	alien.player = player_camera      # movement target
 	alien.player_body = player_body   # collision target

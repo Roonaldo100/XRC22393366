@@ -46,17 +46,19 @@ func _exit_tree():
 
 # Perform jump movement
 func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: bool):
-	# Skip if the controller isn't active
 	if not _controller or not _controller.get_is_active():
 		return
 
-	## get input action with deadzone correction applied
 	var dz_input_action = XRToolsUserSettings.get_adjusted_vector2(_controller, input_action)
 
-	player_body.ground_control_velocity.y += dz_input_action.y * max_speed
+	# Direct assignment prevents sliding
+	player_body.ground_control_velocity = Vector2.ZERO
+	player_body.ground_control_velocity.y = dz_input_action.y * max_speed
+
 	if strafe:
-		player_body.ground_control_velocity.x += dz_input_action.x * max_speed
-		
+		player_body.ground_control_velocity.x = dz_input_action.x * max_speed
+
+	# Vertical movement (A/B buttons)
 	if _controller.is_button_pressed("ax_button"):
 		player_body.velocity.y = max_speed
 	elif _controller.is_button_pressed("by_button"):
@@ -64,11 +66,11 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	else:
 		player_body.velocity.y = 0.0
 
-
-	# Clamp ground control
+	# Clamp max
 	var length := player_body.ground_control_velocity.length()
 	if length > max_speed:
 		player_body.ground_control_velocity *= max_speed / length
+
 
 
 # This method verifies the movement provider has a valid configuration.
