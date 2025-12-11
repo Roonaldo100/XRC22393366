@@ -36,7 +36,9 @@ func _spawn_alien():
 	alien.manager = self
 
 func alien_killed():
+	_play_hurt_sound()
 	_spawn_alien()
+	
 
 func player_touched():
 	if alien and alien.has_node("HurtSound"):
@@ -48,3 +50,19 @@ func _kill_current():
 	if alien:
 		alien.queue_free()
 		alien = null
+		
+func _play_hurt_sound():
+	if not alien:
+		return
+
+	var sound: AudioStreamPlayer2D = alien.hurtsound
+	if sound:
+
+		# Detach so it can keep playing after alien is freed
+		sound.get_parent().remove_child(sound)
+		get_tree().current_scene.add_child(sound)
+
+		sound.play()
+
+		# Remove sound when finished
+		sound.finished.connect(func(): sound.queue_free())

@@ -101,10 +101,10 @@ var _current_audio: AudioStreamPlayer3D = null
 
 
 ## Current target node
-var target : Node3D = null
+var target : Node = null
 
 ## Last target node
-var last_target : Node3D = null
+var last_target : Node = null
 
 ## Last collision point
 var last_collided_at : Vector3 = Vector3.ZERO
@@ -196,7 +196,7 @@ func _process(_delta):
 		_update_y_offset()
 
 	# Find the new pointer target
-	var new_target : Node3D
+	var new_target : Node
 	var new_at : Vector3
 	var suppress_area := $SuppressArea
 	if (enabled and

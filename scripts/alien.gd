@@ -4,6 +4,7 @@ var player: Node3D        # XRCamera3D for tracking
 var player_body: Node3D   # XRToolsPlayerBody for collision
 var manager
 var speed := 10.0
+@onready var hurtsound = $Area3D/HurtSound
 
 func _process(delta):
 	if not player:
