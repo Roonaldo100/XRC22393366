@@ -12,7 +12,12 @@ https://github.com/Roonaldo100/XRC22393366
 https://youtube.com/shorts/YK0knIGWrhM?feature=share
 
 **Screenshots**
-![SunView](screenshots/sun_view)
+
+![SunView](screenshots/sun_view.png)
+![PlanetShadow](screenshots/planet_shadow.png)
+![Alien_Shoot](screenshots/alien_point.png)
+![Teleport](screenshots/teleport.png)
+
 ---
 
 ## Project Description
@@ -55,9 +60,13 @@ Additionally, a **small alien shooter mode** is included for entertainment, whic
 
 ## How it Works
 
-The ratio of planets to the Earth or Sun is stored in a singleton/global script called `SolarSettings`. Planets are scaled according to these settings to maintain realistic system-wide scale. This is done by scaling against dictionary values holding their relative values.
+The ratio of planets to the Earth or Sun is stored in a singleton/global script called `SolarSettings`. Planets are scaled according to these settings to maintain realistic system-wide scale. This is done by scaling against dictionary values holding their relative values:
 
-Planets orbit around the Sun at a constant radius based on their initial distance from the Sun, orbiting about the x and z axis. This is done mathematically using a segment of the `_process` function in the planet script.
+![Dictionary](screenshots/dictionary.png)
+
+Planets orbit around the Sun at a constant radius based on their initial distance from the Sun, orbiting about the x and z axis. This is done mathematically using a segment of the `_process` function in the planet script:
+
+![CodeSnippet](screenshots/code_snippet.png)
 
 The player’s movement and teleportation is handled using the `xr_tools` library with slight modifications. For example, the default teleport arc was modified to allow long-distance teleportation in a straight line.
 
@@ -71,9 +80,15 @@ Planets are lit by an omnidirectional light source located at the Sun. The Sun i
 
 ### Self-Written
 
+![alien, alien_manager, planet_script, player_setup, SolarSettings](screenshots/self_written.png)
+
 ### Modified from XRTools
 
+![function_pointer, function_teleport, movement_direct](screenshots/modified_xrtools.png)
+
 ### Taken Directly From XRTools
+
+![hand, movement_turn, start_xr](screenshots/directly_xrtools.png)
 
 ---
 
