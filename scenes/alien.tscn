@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7r8du5rqn5bo"]
+[gd_scene load_steps=8 format=3 uid="uid://c7r8du5rqn5bo"]
 
 [ext_resource type="Script" uid="uid://dtebynokim8rd" path="res://scripts/alien.gd" id="1_u8rjw"]
 [ext_resource type="AudioStream" uid="uid://dw35vrwofhnmh" path="res://Audio/hurt-sound-435314.mp3" id="2_3vbw7"]
@@ -12,6 +12,11 @@ albedo_color = Color(0, 1, 0, 1)
 emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 2.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8rjw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vbw7"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Alien" type="Node3D"]
 script = ExtResource("1_u8rjw")
@@ -32,5 +37,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h100l")
 stream = ExtResource("2_3vbw7")
 volume_db = 5.293
 max_distance = 20000.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.145, 0.47, 0.485)
+visible = false
+mesh = SubResource("CapsuleMesh_u8rjw")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vbw7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.29018295, 0.47, 0.485)
+visible = false
+mesh = SubResource("CapsuleMesh_u8rjw")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vbw7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.07154982, -0.17931476, 0.485)
+visible = false
+mesh = SubResource("CapsuleMesh_u8rjw")
+surface_material_override/0 = SubResource("StandardMaterial3D_3vbw7")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
